@@ -1,19 +1,3 @@
-import java.util.Scanner;
-public class Exercicioum
-{
-
- public static void main (String[] args) {
-   Scanner comissao = new Scanner (System.in);
-   System.out.print(s: "Digite a quantidade de peças:");
-   double pecas = comissao.nextDouble();
-   System.out.print(s: "Digite o valor da peça:");
-   double valor = comissao.nextDouble();
-   double comissaototal = (pecas * valor * 5)/100;
-   System.out.printf(format:"R$ %.2f" ,comissaototal);
- }
-}
-
-
 public static void main(string[] args) {
     double a = 2.0; 
     double b = 3.0; 
