@@ -1,0 +1,164 @@
+//class1: Pessoa
+package pess;
+
+public class pessoa {
+    protected String nome;
+    protected String endereco;
+    protected String rg;
+    protected String cpf;
+    protected String matricula;
+
+    public pessoa (String nome, String endereco, String rg, String cpf, String matricula) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.rg = rg;
+        this.cpf = cpf;
+        this.matricula = matricula;
+    }
+
+    public String toString() {
+        return "Nome " + nome + "/n , Matricula " + matricula;
+    }
+}
+
+//Class2: aluno
+package pess;
+
+public class aluno extends pessoa {
+    private int turmaId;
+
+    public aluno (String nome, String endereco, String rg, String cpf, String matricula, int turmaId) {
+        super(nome, matricula, cpf, rg, endereco);
+        this.turmaId = turmaId;
+    }
+    public String toString() {
+        return super.toString() + ", Turma ID: " + turmaId;
+    }
+}
+
+//Class 3: professor
+package pess;
+
+public class professor extends pessoa {
+    public professor(String nome, String endereco, String rg, String cpf, String matricula) {
+        super(nome, matricula, cpf, rg, endereco);
+    }
+}
+
+// Class 4: turma
+
+package pess;
+
+public class turma {
+    private static int contador = 0;
+    private int id;
+
+    public turma(){
+        this.id=contador++;
+    }
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Turma ID: " + id;
+    }
+}
+
+
+// Aplicação 
+package pess;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class aplicacao {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        private static List<aluno> alunos = new ArrayList<>();
+        private static List<professor> professores = new ArrayList<>();
+        private static List<turma> turmas = new ArrayList<>();
+
+        int opcao;
+
+        do {
+            System.out.println("\nMenu");
+            System.out.println("1 - Cadastrar Aluno: ");
+            System.out.println("2 - Cadastrar Professor: ");
+            System.out.println("3 - Criar nova turma: ");
+            System.out.println("4 - Imprimir Listas: ");
+            System.out.println("5 - Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = sc.nextInt();
+
+            switch (opcao) {
+                case 1 -> cadastrarAluno(sc);
+                case 2 -> cadastrarProfessor(sc);
+                case 3 -> criarTurma();
+                case 4 -> imprimirListas();
+                case 5 -> System.out.println("Encerrando o programa...");
+                default -> System.out.println("Opção invalida! ");
+
+            }
+
+        } while (opcao != 5);
+    }
+
+        private static void cadastrarAluno(Scanner sc) {
+            if (turmas.isEmpty()) {
+                System.out.println("Nenhuma turma cadastrada... Crie uma turma: ");
+                return;
+            }
+            System.out.println("Nome: ");
+            String nome = sc.nextLine();
+            System.out.println("Matrícula: ");
+            String matricula = sc.nextLine();
+            System.out.println("CPF: ");
+            String cpf = sc.nextLine();
+            System.out.println("RG: ");
+            String rg = sc.nextLine();
+            System.out.println("CPF: ");
+            String cpf = sc.nextLine();
+
+            System.out.println("Turmas disponíveis: ");
+            for (turma t : turmas) {
+                System.out.println(" - " + t);
+            }
+
+            System.out.print("Escolha o ID da turma: ");
+            int turmaId = sc.nextInt();
+            sc.nextLine();
+
+            aluno novoAluno = new aluno(nome, matricula, cpf, rg, endereco, turmaId);
+            alunos.add(novoAluno);
+            System.out.println("Aluno cadastrado com sucesso!");
+        }
+
+    private static void cadastrarProfessor(Scanner sc) {
+
+        System.out.println("Nome: ");
+        String nome = sc.nextLine();
+        System.out.println("Matrícula: ");
+        String matricula = sc.nextLine();
+        System.out.println("CPF: ");
+        String cpf = sc.nextLine();
+        System.out.println("RG: ");
+        String rg = sc.nextLine();
+        System.out.println("CPF: ");
+        String cpf = sc.nextLine();
+
+        professor novoProfessor = new professor(nome, matricula, cpf, rg, endereco, turmaId);
+        professores.add(novoProfessor);
+        System.out.println("Professor cadastrado com sucesso!");
+
+
+    }
+
+
+
+
+    }
+
+
